@@ -2,16 +2,17 @@
 * Dylan Convery
 * D14124700
 * TU856/4
-* This project is a recreation of the first two minutes of the dogfight scene from Cowboy Bebop: The Movie. It will be done using the Unity Game Engine. There will be a variety of systems at play such as steering behavourits, finite state machines and behaviour trees.
+
+This project is a recreation of the first two minutes of the dogfight scene from Cowboy Bebop: The Movie. It will be done using the Unity Game Engine. There will be a variety of systems at play such as steering behavourits, finite state machines and behaviour trees.
 
 # Source Video
 [![Source](https://img.youtube.com/vi/N-nRnddi7Q8/hqdefault.jpg)](https://www.youtube.com/watch?v=N-nRnddi7Q8)
 
 # Video Demonstration
-## TODO
+TODO
 
 # Accomplishments
-## TODO
+TODO
 
 # Event Summary
 1. Swordfish II appears on screen
@@ -41,17 +42,16 @@
 25. Scene fade out
 
 # How it works
-## TODO
+TODO
 
 # How to use
 * Launch executable and the scene should play out without user interaction needed.
 
 # Classes
-## TODO
+TODO
 
 # Storyboard
-## TODO
-
+TODO
 
 # Resources
 * Swordfish Model: https://www.cgtrader.com/free-3d-models/space/spaceship/swordfish-51f381bd-c7fb-4ca1-a936-274607bef1c8
