@@ -1,5 +1,3 @@
-# Space-Battle
-
 # Description
 * Dylan Convery
 * D14124700
