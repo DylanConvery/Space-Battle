@@ -35,24 +35,23 @@ public class Boid : MonoBehaviour {
     public Vector3 ArriveForce(Vector3 target, float slowingDistance = 10.0f, float deceleration = 3) {
         Vector3 toTarget = target - transform.position;
         float distance = toTarget.magnitude;
+        if (distance == 0.0f) { return Vector3.zero; }
         Vector3 desired;
         if (distance < slowingDistance) {
-            desired = maxSpeed * (distance / slowingDistance) * (toTarget / distance);
+            desired = ((distance / slowingDistance) * maxSpeed) * (toTarget / distance);
         } else {
             desired = maxSpeed * (toTarget / distance);
-            deceleration = 1;
+            deceleration = 1f;
         }
-        return desired - velocity * deceleration;
+        return (desired - velocity) * deceleration;
     }
-
 
     Vector3 Calculate() {
         force = Vector3.zero;
         foreach (SteeringBehaviour b in behaviours) {
             if (b.isActiveAndEnabled) {
                 force += b.Calculate() * b.weight;
-                float f = force.magnitude;
-                if (f > maxForce) {
+                if (force.magnitude > maxForce) {
                     force = Vector3.ClampMagnitude(force, maxForce);
                     break;
                 }
@@ -62,8 +61,7 @@ public class Boid : MonoBehaviour {
     }
 
     void Update() {
-        force = Calculate();
-        acceleration = force / mass;
+        acceleration = Calculate() / mass;
         velocity += acceleration * Time.deltaTime;
         velocity = Vector3.ClampMagnitude(velocity, maxSpeed);
         if (velocity.magnitude > 0) {

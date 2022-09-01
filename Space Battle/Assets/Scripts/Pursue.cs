@@ -8,9 +8,7 @@ public class Pursue : SteeringBehaviour {
     public override Vector3 Calculate() {
         float distance = Vector3.Distance(target.transform.position, transform.position);
         float time = distance / boid.maxSpeed;
-
         Vector3 targetPos = target.transform.position + (target.velocity * time);
-
         return boid.SeekForce(targetPos);
     }
 }
