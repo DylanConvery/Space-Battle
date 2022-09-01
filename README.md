@@ -3,7 +3,7 @@
 * D14124700
 * TU856/4
 
-This project is a recreation of the first two minutes of the dogfight scene from Cowboy Bebop: The Movie. It will be done using the Unity Game Engine. There will be a variety of systems at play such as steering behavourits, finite state machines and behaviour trees.
+This project is a scene recreation of the first two minutes of the dogfight scene from Cowboy Bebop: The Movie. It will be done using the Unity Game Engine. There will be a variety of systems at play such as steering behaviours, finite state machines and behaviour trees.
 
 # Source Video
 [![Source](https://img.youtube.com/vi/N-nRnddi7Q8/hqdefault.jpg)](https://www.youtube.com/watch?v=N-nRnddi7Q8)
@@ -12,7 +12,7 @@ This project is a recreation of the first two minutes of the dogfight scene from
 TODO
 
 # Accomplishments
-TODO
+I'm happy I managed to get everything working and understand the steering behaviours, implementing the weighted prioritised truncated sum for the weighted steering behaviours, and just giving a nice feel to the scene.
 
 # Event Summary
 1. Swordfish II appears on screen
@@ -42,20 +42,39 @@ TODO
 25. Scene fade out
 
 # How it works
-TODO
+## Behaviours
+* Arrive - Decelerate as you get closer to a target
+* Boid - Acts as a main class for orchastrating the various steering behaviours
+* Flee - Opposite of Seek in that it actively pushes away from a target
+* FollowPath - Iterates over a list of waypoints allowing.
+* Offset Pursue - Follow a target or leader with a set offset
+* Path - Operates the list of waypoints
+* Pursue - Follow a target 
+* Seek - Actively apply force towards a target
+* SteeringBehaviour - Abstract class to allow for a common interface among all steering behaviour types
+
 
 # How to use
-* Launch executable and the scene should play out without user interaction needed.
+* Load project into Unity
+* Press play
 
 # Classes
-TODO
+* Arrive
+* Boid
+* Flee
+* FollowPath
+* Offset Pursue
+* Path
+* Pursue
+* Seek
+* SteeringBehaviour
 
 # Storyboard
 TODO
 
 # Resources
 * Swordfish Model: https://www.cgtrader.com/free-3d-models/space/spaceship/swordfish-51f381bd-c7fb-4ca1-a936-274607bef1c8
-* Spaceship Free 3D Model: https://www.cgtrader.com/free-3d-models/aircraft/other/spaceship-c60b14c2-cd67-4331-a255-2bcf36d3ff15
+* Spitfire: https://quaternius.com/packs/ultimatespaceships.html
 * 3D Realistic Terrain Free: https://assetstore.unity.com/packages/3d/environments/landscapes/3d-realistic-terrain-free-182593
 * Skybox Series Free: https://assetstore.unity.com/packages/2d/textures-materials/sky/skybox-series-free-103633
 * New Futuristic Jet Cockpit Wip-2 Version 1 Free 3D model: https://www.cgtrader.com/free-3d-models/aircraft/jet/new-futuristic-jet-cockpit-wip-2-version-1
