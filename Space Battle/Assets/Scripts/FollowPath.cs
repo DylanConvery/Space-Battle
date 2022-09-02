@@ -3,19 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class FollowPath : SteeringBehaviour {
-    public Path path;
-    Vector3 nextWaypoint;
-    public float waypointDistance = 5;
-    public int next = 0;
-    public bool looped = true;
-
-    public void OnDrawGizmos() {
-        if (isActiveAndEnabled && Application.isPlaying) {
-            Gizmos.color = Color.cyan;
-            Gizmos.DrawLine(transform.position, nextWaypoint);
-        }
-    }
-
+    private void Start() { }
     public Vector3 NextWaypoint() {
         return path.waypoints[next];
     }
@@ -35,7 +23,7 @@ public class FollowPath : SteeringBehaviour {
     }
 
     public override Vector3 Calculate() {
-        nextWaypoint = NextWaypoint();
+        Vector3 nextWaypoint = NextWaypoint();
         if (Vector3.Distance(transform.position, nextWaypoint) < waypointDistance) {
             AdvanceToNext();
         }
@@ -46,4 +34,9 @@ public class FollowPath : SteeringBehaviour {
             return boid.SeekForce(nextWaypoint);
         }
     }
+
+    public Path path = null;
+    public float waypointDistance = 5;
+    public int next = 0;
+    public bool looped = true;
 }

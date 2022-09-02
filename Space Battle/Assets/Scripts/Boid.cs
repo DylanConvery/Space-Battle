@@ -3,22 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Boid : MonoBehaviour {
-    List<SteeringBehaviour> behaviours = new List<SteeringBehaviour>();
-
-    public Vector3 force = Vector3.zero;
-    public Vector3 acceleration = Vector3.zero;
-    public Vector3 velocity = Vector3.zero;
-    public float mass = 1;
-
-    [Range(0.0f, 10.0f)]
-    public float damping = 0.01f;
-
-    [Range(0.0f, 1.0f)]
-    public float banking = 0.1f;
-    public float maxSpeed = 5.0f;
-    public float maxForce = 10.0f;
-
-    void Start() {
+    private void Start() {
         SteeringBehaviour[] behaviours = GetComponents<SteeringBehaviour>();
         foreach (SteeringBehaviour b in behaviours) {
             this.behaviours.Add(b);
@@ -46,7 +31,7 @@ public class Boid : MonoBehaviour {
         return (desired - velocity) * deceleration;
     }
 
-    Vector3 Calculate() {
+    private Vector3 Calculate() {
         force = Vector3.zero;
         foreach (SteeringBehaviour b in behaviours) {
             if (b.isActiveAndEnabled) {
@@ -60,7 +45,7 @@ public class Boid : MonoBehaviour {
         return force;
     }
 
-    void Update() {
+    private void Update() {
         acceleration = Calculate() / mass;
         velocity += acceleration * Time.deltaTime;
         velocity = Vector3.ClampMagnitude(velocity, maxSpeed);
@@ -71,4 +56,16 @@ public class Boid : MonoBehaviour {
             velocity *= (1.0f - (damping * Time.deltaTime));
         }
     }
+
+    private List<SteeringBehaviour> behaviours = new List<SteeringBehaviour>();
+
+    public Vector3 force = Vector3.zero;
+    public Vector3 acceleration = Vector3.zero;
+    public Vector3 velocity = Vector3.zero;
+
+    public float mass = 1;
+    [Range(0.0f, 10.0f)] public float damping = 0.01f;
+    [Range(0.0f, 1.0f)] public float banking = 0.1f;
+    public float maxSpeed = 5.0f;
+    public float maxForce = 10.0f;
 }

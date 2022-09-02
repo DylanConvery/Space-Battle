@@ -3,10 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Path : MonoBehaviour {
-    public List<Vector3> waypoints = new List<Vector3>();
-    public int current = 0;
-    public bool isLooped = true;
-
+    private void Start() { }
     private void PopulatePath() {
         waypoints.Clear();
         foreach (Transform child in transform.GetComponentsInChildren<Transform>()) {
@@ -51,4 +48,8 @@ public class Path : MonoBehaviour {
             current = (current + 1) % waypoints.Count;
         }
     }
+
+    public List<Vector3> waypoints = new();
+    public int current = 0;
+    public bool isLooped = true;
 }

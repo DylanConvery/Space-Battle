@@ -3,10 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class OffsetPursue : SteeringBehaviour {
-    public Boid leader;
-    Vector3 offset;
-
-    void Start() {
+    private void Start() {
         offset = transform.position - leader.transform.position;
         offset = Quaternion.Inverse(leader.transform.rotation) * offset;
     }
@@ -18,4 +15,7 @@ public class OffsetPursue : SteeringBehaviour {
         Vector3 targetPosition = worldTarget + (leader.velocity * time);
         return boid.ArriveForce(targetPosition);
     }
+
+    public Boid leader = null;
+    private Vector3 offset = Vector3.zero;
 }
